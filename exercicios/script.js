@@ -22,11 +22,12 @@ function calcularCaracter() {
 
 function verificarParImpar() {
     let numero = Number(document.getElementById("numeroParImpar").value);
-    if (numero % 2 === 0) {
-        document.getElementById("resultado4").innerText = ("É par");
-    } else {
-        document.getElementById("resultado4").innerText = ("É ímpar");
-    }
+    let texto = document.getElementById("resultado4").innerText = (numero % 2 === 0 ? "É par" : "É ímpar")
+    // if (numero % 2 === 0) {
+    //     document.getElementById("resultado4").innerText = ("É par");
+    // } else {
+    //     document.getElementById("resultado4").innerText = ("É ímpar");
+    // }
 }
 
 function converterCaixaAlta() {
@@ -37,14 +38,14 @@ function converterCaixaAlta() {
 function verificarMaior() {
     let num1 = Number(document.getElementById("numMaior1").value);
     let num2 = Number(document.getElementById("numMaior2").value);
-    let res = "";
-    if (num1 > num2) {
-        res = num1 + " é maior.";
-    } else if (num2 > num1) {
-        res = num2 + " é maior.";
-    } else {
-        res = "Os números são iguais.";
-    }
+    let res = (num1 > num2 ? num1 + " é maior" : num2 > num1 ? num2 + " é maior" : "Os números são iguais");
+    // if (num1 > num2) {
+    //     res = num1 + " é maior.";
+    // } else if (num2 > num1) {
+    //     res = num2 + " é maior.";
+    // } else {
+    //     res = "Os números são iguais.";
+    // }
     document.getElementById("resultado6").innerText = res;
 }
 
@@ -58,11 +59,23 @@ function gerarTabuada() {
 }
 
 function contarUmADez() {
+    let segundos = 0;
     let resultado = "";
-    for (let i = 1; i <= 10; i++) {
-        resultado += i + " ";
-    }
-    document.getElementById("resultado8").innerText = resultado.trim();
+
+    let intervalo = setInterval(function() {
+        if (segundos <= 10) {
+          resultado += segundos + " ";
+          document.getElementById("resultado8").innerText = resultado;
+          segundos++;
+        } else {
+          clearInterval(intervalo);
+        }
+      }, 1000);
+    // let resultado = "";
+    // for (let i = 1; i <= 10; i++) {
+    //     resultado += i + " ";
+    // }
+    // document.getElementById("resultado8").innerText = resultado.trim();
 }
 
 function calcularMedia() {
@@ -70,13 +83,13 @@ function calcularMedia() {
     let nota2 = Number(document.getElementById("nota2").value);
     let nota3 = Number(document.getElementById("nota3").value);
     let media = (nota1 + nota2 + nota3) / 3;
-    let resultado = "";
-    if (media >= 6) {
-        resultado = "Aprovado! Média: " + media.toFixed(2);
-    } else {
-        resultado = "Reprovado. Média: " + media.toFixed(2);
-    }
-    document.getElementById("resultado9").innerText = resultado;
+    let resultado = document.getElementById("resultado9").innerText = (media >= 6 ? "Aprovado! Média: " + media.toFixed(2) : "Reporvado. Média: " + media.toFixed(2));
+    // if (media >= 6) {
+    //     resultado = "Aprovado! Média: " + media.toFixed(2);
+    // } else {
+    //     resultado = "Reprovado. Média: " + media.toFixed(2);
+    // }
+    // document.getElementById("resultado9").innerText = resultado;
 }
 
 function converterTemperatura() {
@@ -88,26 +101,40 @@ function converterTemperatura() {
 function verificarDiaSemana() {
     let dia = Number(document.getElementById("diaSemana").value);
     let dias = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-    if (dia >= 1 && dia <= 7) {
-        document.getElementById("resultado11").innerText = "Dia da semana: " + dias[dia - 1];
-    } else {
-        document.getElementById("resultado11").innerText = "Número inválido!";
-    }
+    let texto = document.getElementById("resultado11").innerText = (dia >= 1 && dia <= 7 ? "Dia da semana: " + dias[dia - 1]: document.getElementById("resultado11").innerText = "Número inválido!");
+    // if (dia >= 1 && dia <= 7) {
+    //     document.getElementById("resultado11").innerText = "Dia da semana: " + dias[dia - 1];
+    // } else {
+    //     document.getElementById("resultado11").innerText = "Número inválido!";
+    // }
 }
 
 function verificarSenha() {
     let senha = document.getElementById("senha").value;
-    if (senha === "1234") {
-        document.getElementById("resultado12").innerText = "Acesso permitido!";
-    } else {
-        document.getElementById("resultado12").innerText = "Senha incorreta.";
-    }
+    let acesso = document.getElementById("resultado12").innerText = (senha === "1234" ? "Acesso permitido!" : "Senha incorreta.");
+    // if (senha === "1234") {
+    //     document.getElementById("resultado12").innerText = "Acesso permitido!";
+    // } else {
+    //     document.getElementById("resultado12").innerText = "Senha incorreta.";
+    // }
 }
 
 function contagemRegressiva() {
+    let segundos = 10;
     let resultado = "";
-    for (let i = 10; i >= 1; i--) {
-        resultado += i + " ";
-    }
-    document.getElementById("resultado13").innerText = resultado.trim();
+
+    let intervalo = setInterval(function() {
+        if (segundos >= 1) {
+          resultado += segundos + " ";
+          document.getElementById("resultado13").innerText = resultado;
+          segundos--;
+        } else {
+          clearInterval(intervalo);
+        }
+      }, 1000);
+    // let resultado = "";
+    // for (let i = 10; i >= 1; i--) {
+    //     resultado += i + " ";
+    // }
+    // document.getElementById("resultado13").innerText = resultado.trim();
 }
